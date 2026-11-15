@@ -28,7 +28,7 @@ public class GraphDisplay extends JPanel implements MouseMotionListener
         //opens/read image file
         try
         {
-            image = ImageIO.read(new File("fiu map.png"));
+            image = ImageIO.read(new File("./miami.png"));
         }
         catch (IOException ex)
         {
@@ -45,24 +45,43 @@ public class GraphDisplay extends JPanel implements MouseMotionListener
      * @param e contains current location of mouse
      */
     public void mouseMoved(MouseEvent e)
-    {
-        //only for coordinates lookup; remove after project completion
-        System.out.println("(" + e.getPoint().x + ", " +
-                           e.getPoint().y + ")");
-        
+    {        
         //is current mouse location inside a geometric object?
         //Set description accordingly
-        int x = e.getPoint().x;
-        int y = e.getPoint().y;
         Point p = new Point(e.getPoint().x, e.getPoint().y);
+        description = "";
                
-        ////////////////////////////////////////////////////////////////////////
-        //DUMMY code (replace with code implementing solution to the assignment)
-        if (p.getX() < 100) description = "West of Campus";
-        else
-            if (p.getX() > 350) description = "East of Campus";
-            else description = "";
-        ////////////////////////////////////////////////////////////////////////
+        for(int i=0; i<gArray.length; ++i){
+            Polygon poly = (Polygon) gArray[i];
+
+            if(poly.isPointInPolygon(p)) {
+                switch(i) {
+                    case 0:
+                        description = "Key Biscayne";
+                        break;
+                    case 1:
+                        description = "Virginia Key";
+                        break;
+                    case 2:
+                        description = "FIU MMC Campus";
+                        break;
+                    case 3:
+                        description = "Miami International Airport";
+                        break;
+                    case 4:
+                        description = "Downtown";
+                        break;
+                    case 5:
+                        description = "Coconut Grove";
+                        break;
+                    case 6:
+                        description = "Miami Beach";
+                        break;
+                }
+                break;
+            }
+
+        }
         
         repaint();
     }
