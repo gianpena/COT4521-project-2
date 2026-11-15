@@ -134,4 +134,33 @@ public class Point extends GeometricObject
         y += v.getY();
     }
 
+    public Point closestPoint(LineSegment ls) {
+        if (ls.getBegin().getX() == ls.getEnd().getX() &&
+            ls.getBegin().getY() == ls.getEnd().getY())
+            return ls.getBegin();
+
+        Line l0 = ls.getSupportingLine();
+        Line l1 = new Line(l0.getB(), -l0.getA(), l0.getA()*getY() - l0.getB()*getX());
+
+        Point intercept = l0.intersection(l1);
+
+        //if projection falls on the segment, it is the closest point
+        if (intercept.getX() >= ls.smallestX() && intercept.getX() <= ls.greatestX() &&
+            intercept.getY() >= ls.smallestY() && intercept.getY() <= ls.greatestY())
+            return intercept;
+
+        return distance(ls.getBegin()) < distance(ls.getEnd()) ? ls.getBegin() : ls.getEnd();        
+    }
+
+    public Point closestPoint(LineSegment[] segments) {
+        Point ans = closestPoint(segments[0]);
+        for(int i=1; i<segments.length; ++i) {
+            Point p = closestPoint(segments[i]);
+            if(distance(p) < distance(ans))
+                ans = p;
+        }
+
+        return ans;
+    }
+
 }
