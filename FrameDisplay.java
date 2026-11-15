@@ -3,8 +3,8 @@ import javax.swing.*;
 
 public class FrameDisplay extends JFrame
 {   
-    int WIDTH = 450;
-    int HEIGHT = 450;
+    int WIDTH = 1000;
+    int HEIGHT = 560;
     
     private GraphDisplay panel;
 
