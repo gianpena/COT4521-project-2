@@ -1,6 +1,14 @@
 
 import java.awt.*;
 
+/**
+ * Abstract base class of all geometric objects; stores boundary and interior colors.
+ *
+ * Based on code from the COT4521 course materials.
+ *
+ * @author Gian Peña (PID 6396658)
+ * @author Henrique Pitta Laranjinha (PID 6527270)
+ */
 abstract public class GeometricObject
 {
     private Color boundaryColor;        //boundary color

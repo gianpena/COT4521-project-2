@@ -1,6 +1,11 @@
 
 /**
  * This class represents a position vector given by its x and y components.
+ *
+ * Based on code from the COT4521 course materials.
+ *
+ * @author Gian Peña (PID 6396658)
+ * @author Henrique Pitta Laranjinha (PID 6527270)
  */
 public class Vector
 {
@@ -25,6 +30,30 @@ public class Vector
     {
         this.x = x;
         this.y = y;
+    }
+
+    /**
+     * Instantiates the vector that goes from point p to point q.
+     *
+     * @param p start point
+     * @param q end point
+     */
+    public Vector(Point p, Point q)
+    {
+        this.x = q.getX() - p.getX();
+        this.y = q.getY() - p.getY();
+    }
+
+    /**
+     * Computes the cross product of this vector and the given one, i.e.,
+     * the z component of (this x v).
+     *
+     * @param v given vector
+     * @return this.x * v.y - this.y * v.x
+     */
+    public double crossProduct(Vector v)
+    {
+        return x * v.getY() - y * v.getX();
     }
 
     /**

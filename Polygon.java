@@ -4,6 +4,11 @@ import java.util.Arrays;
 /**
  * This class represents a simple polygon; polygon is given by its vertices 
  * listed in counterclockwise order.
+ *
+ * Based on code from the COT4521 course materials.
+ *
+ * @author Gian Peña (PID 6396658)
+ * @author Henrique Pitta Laranjinha (PID 6527270)
  */
 public class Polygon extends GeometricObject
 {

@@ -1,10 +1,14 @@
-/**
- * Collection of geometric algorithms.
- */
-
 import java.util.ArrayList;
 import java.util.Comparator;
 
+/**
+ * Collection of geometric algorithms.
+ *
+ * Based on code from the COT4521 course materials.
+ *
+ * @author Gian Peña (PID 6396658)
+ * @author Henrique Pitta Laranjinha (PID 6527270)
+ */
 public class Algorithms
 {
     /**

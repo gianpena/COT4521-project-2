@@ -3,6 +3,11 @@ import java.awt.Graphics;
 /**
  * This class represents a line segment given by end points;
  * end points might be equal.
+ *
+ * Based on code from the COT4521 course materials.
+ *
+ * @author Gian Peña (PID 6396658)
+ * @author Henrique Pitta Laranjinha (PID 6527270)
  */
 public class LineSegment extends GeometricObject
 {
